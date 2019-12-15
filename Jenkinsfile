@@ -15,7 +15,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         echo "Starting building..."
-        withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           echo '%USERNAME%'
           echo '%PASSWORD%'
           bat 'docker login -u %USERNAME% -p %PASSWORD%'
